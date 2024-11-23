@@ -80,19 +80,24 @@ if (isset($_POST['update_stand'])) {
 
 // Deletar Stand
 if (isset($_POST['delete_stand'])) {
-    $stand_id = mysqli_real_escape_string($conexao, $_POST['delete_stand']);
+    require_once 'conexao.php'; // Inclui a conexão com o banco de dados
 
+    // Obtém o ID do stand
+    $stand_id = $_POST['delete_stand'];
+
+    // Consulta para deletar
     $sql = "DELETE FROM stands WHERE id = '$stand_id'";
     mysqli_query($conexao, $sql);
 
+    // Verifica se foi deletado com sucesso
     if (mysqli_affected_rows($conexao) > 0) {
         $_SESSION['mensagem'] = 'Stand deletado com sucesso';
-        header('Location: view.php');
-        exit;
     } else {
         $_SESSION['mensagem'] = 'Erro ao deletar o Stand';
-        header('Location: view.php');
-        exit;
     }
+
+    // Redireciona para a página de visualização
+    header('Location: view.php');
+    exit;
 }
 ?>

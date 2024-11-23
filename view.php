@@ -69,11 +69,11 @@ require 'conexao.php';
                       </a>
                       <form action="acoes.php" method="POST" class="d-inline">
                         <button onclick="return confirm('Tem certeza que deseja excluir?')" 
-                                type="submit" 
-                                name="deleteStand" 
-                                value="<?=$stand['id']?>" 
-                                class="btn btn-danger btn-sm">
-                          <span class="bi-trash3-fill"></span>&nbsp;Excluir
+                            type="submit" 
+                            name="delete_stand" 
+                            value="<?=$stand['id']?>" 
+                              class="btn btn-danger btn-sm">
+                            <span class="bi-trash3-fill"></span>&nbsp;Excluir
                         </button>
                       </form>
                     </td>
